@@ -1,0 +1,22 @@
+div {
+}
+
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.jobsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.facturacionInput {
+  margin: 12px 0px;
+}
+
+.facturacionAcciones {
+  margin: 0px 12px 12px 0;
+}
+

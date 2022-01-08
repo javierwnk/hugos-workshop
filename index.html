@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+    <script src="./assets/js/loginchecker.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                    https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    
+        <script defer src="./assets/js/firebase.js"></script>
 </head>
 
 <body id="page-top">
@@ -25,7 +35,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item" id="logout"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -58,7 +68,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>ingresos del mes</span></div>
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>ingresos por mano de obra del mes</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span>$215,000</span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>

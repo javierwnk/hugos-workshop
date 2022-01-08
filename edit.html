@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+    <script src="./assets/js/loginchecker.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                    https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    
+        <script defer src="./assets/js/firebase.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -25,7 +36,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item" id="logout"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -49,8 +60,24 @@
                                 <div class="col-md-12">
                                     <p style="margin: 16px 0 16px;font-size: 12px;">Formulario para el alta de un trabajo. Los campos con * son obligatorios</p>
                                     <form>
-                                        <h6 style="font-weight: bold;">Datos generales</h6><input class="form-control" type="text" placeholder="Nombre y Apellido *" style="margin: 10px 0;" required=""><input class="form-control" type="text" placeholder="Dirección completa *" style="margin: 10px 0;" required=""><input class="form-control" type="tel" required="" placeholder="Teléfono *"><input class="form-control" type="email" style="margin: 10px 0;" placeholder="E-mail"><input class="form-control" type="number" placeholder="DNI (Solo números) *" required="" style="margin: 0 0 10px 0;"><label class="form-label">Fecha de nacimiento</label><input class="form-control" type="date" style="margin: 0 0 10px 0;">
-                                        <h6 style="font-weight: bold;">Información del trabajo y del vehículo</h6><input class="form-control" type="text" placeholder="Patente *" style="margin: 10px 0;" required=""><label class="form-label">Fecha del trabajo</label><input class="form-control" type="date" style="margin: 0 0 10px 0;"><textarea class="form-control" placeholder="Descripción del trabajo *"></textarea><button class="btn btn-primary" type="button" style="margin: 10px 0;width: 100%;">Crear trabajo</button>
+                                        <h6 style="font-weight: bold;">Datos generales</h6>
+                                        <input class="form-control" type="text" placeholder="Nombre y Apellido *" style="margin: 10px 0;" required id="name">
+                                        <input class="form-control" type="text" placeholder="Dirección completa *" style="margin: 10px 0;" required id="address">
+                                        <input class="form-control" type="tel" required id="phone" placeholder="Teléfono *">
+                                        <input class="form-control" type="email" style="margin: 10px 0;" placeholder="E-mail" id="email">
+                                        <input class="form-control" type="number" placeholder="DNI (Solo números) *" required="" style="margin: 0 0 10px 0;" id="dni">
+                                        
+                                        <label class="form-label">Fecha de nacimiento</label>
+                                        <input class="form-control" type="date" style="margin: 0 0 10px 0;" id="birth">
+
+                                        <h6 style="font-weight: bold;">Información del trabajo y del vehículo</h6>
+                                        <input class="form-control" type="text" placeholder="Patente *" style="margin: 10px 0;" required id="plate">
+                                        <label class="form-label">Fecha del trabajo</label>
+
+                                        <input class="form-control" type="date" style="margin: 0 0 10px 0;" required id="date" readonly>
+                                        <textarea class="form-control" placeholder="Descripción del trabajo *" id="jobDescription"></textarea>
+                                        
+                                        <button class="btn btn-primary" type="button" style="margin: 10px 0;width: 100%;" id="save">Guardar cambios</button>
                                     </form>
                                 </div>
                             </div>

@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+    <script src="./assets/js/loginchecker.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                    https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    
+        <script defer src="./assets/js/firebase.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -25,7 +36,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link active" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item" id="logout"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -43,7 +54,7 @@
                     <h3 class="text-dark mb-4">Trabajos</h3>
                     <div class="card shadow">
                         <div class="card-header py-3 jobsHeader">
-                            <p class="text-primary d-inline m-0 fw-bold" style="width: 50%;">Historial de trabajos</p><button class="btn btn-primary" type="button">Crear nuevo trabajo</button>
+                            <p class="text-primary d-inline m-0 fw-bold" style="width: 50%;">Historial de trabajos</p><a href="create.html"><button class="btn btn-primary" type="button">Crear nuevo trabajo</button></a>
                         </div>
                         <div class="card-body">
                             <div class="row">

@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
+    <script src="./assets/js/loginchecker.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                    https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+            
+        <script defer src="./assets/js/firebase.js"></script>
+        <script defer src="./assets/js/viewJob.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -25,7 +38,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item" id="logout"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -42,49 +55,42 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Detalle de trabajo</h3>
                 </div>
-                <div class="container">
+
+                <div class="container d-flex justify-content-center" id="spinner" style="margin: 20px 0;"><span class="spinner-grow textprimary text-primary" role="status" style="width: 80px;height: 80px;"></span></div>
+               
+                <div class="container isLoading" id="data">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-4" style="margin: 12px 0;">
                                     <h6 style="font-weight: bold;">Datos personales</h6>
-                                    <ul class="list-unstyled">
-                                        <li>Nombre y apellido:&nbsp;</li>
-                                        <li>Teléfono:&nbsp;</li>
-                                        <li>DNI:</li>
-                                        <li>Dirección:</li>
-                                        <li>Fecha de Nac:&nbsp;</li>
-                                        <li>Email:</li>
+                                    <ul class="list-unstyled" id="personalInfo">
+                                        
                                     </ul>
                                 </div>
                                 <div class="col-md-4" style="margin: 12px 0;">
                                     <h6 style="font-weight: bold;">Datos del trabajo</h6>
-                                    <ul class="list-unstyled">
-                                        <li>Fecha de ingreso:</li>
-                                        <li>Patente</li>
-                                        <li>Detalle:</li>
+                                    <ul class="list-unstyled" id="jobInfo">
+                                        
                                     </ul>
                                 </div>
                                 <div class="col-md-4" style="margin: 12px 0;"><button class="btn btn-success link-light" type="button" style="width: 100%;margin: 10px 0;">Marcar como completado</button><button class="btn btn-primary" type="button" style="width: 100%;">Editar información</button><button class="btn btn-danger" type="button" style="width: 100%;margin: 10px 0;">Eliminar trabajo</button></div>
                             </div>
                             <p style="font-weight: bold;">Facturación</p>
-                            <form>
+                            <form id="invoice">
                                 <div class="row">
                                     <div class="col">
-                                        <p>Concepto</p><input class="form-control facturacionInput" type="text">
+                                        <p>Concepto</p><input class="form-control facturacionInput" value="Mano de Obra" type="text" readonly>
                                     </div>
                                     <div class="col">
                                         <p>Importe</p><input class="form-control facturacionInput" type="number">
                                     </div>
                                     <div class="col">
-                                        <p>Acciones</p><button class="btn btn-primary facturacionAcciones" type="button">Eliminar</button><button class="btn btn-primary facturacionAcciones" type="button">Agregar</button>
+                                        <p>Acciones</p><button class="btn btn-primary facturacionAcciones" type="button">Agregar</button>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p style="font-size: 24px;color: rgb(0,0,0);font-weight: bold;">Total del trabajo: $</p>
-                                    </div>
-                                </div><button class="btn btn-primary d-lg-flex justify-content-lg-end" type="button">Guardar facturación</button>
+
+                                <button class="btn btn-primary d-lg-flex justify-content-lg-end" type="button">Guardar facturación</button>
                             </form>
                         </div>
                     </div>

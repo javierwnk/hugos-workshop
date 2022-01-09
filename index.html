@@ -33,83 +33,46 @@
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
                     <div class="sidebar-brand-text mx-3"><span>Taller de Hugo</span></div>
                 </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="navbar-nav text-light" id="accordionSidebar">
+                <hr class="sidebar-divider my-0" />
+                <ul id="accordionSidebar" class="navbar-nav text-light">
                     <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item" id="logout"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+                <div class="text-center d-none d-md-inline"><button id="sidebarToggle" class="btn rounded-circle border-0" type="button"></button></div>
             </div>
         </nav>
-        <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button></div>
+                    <div class="container-fluid"><button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle me-3" type="button"><i class="fas fa-bars"></i></button></div>
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Dashboard</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="create.html"><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;Crear trabajo</a>
+                        <h3 class="text-dark mb-0">Dashboard</h3>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-primary py-2">
+                            <div class="card shadow border-start-primary py-2 dashboardCard" id="createJob">
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>estimación de ingresos</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>$40,000</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0 "><span>CREAR TRABAJO</span></div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                        <div class="col-auto"><i class="fas fa-plus-circle fa-2x text-gray-300 "></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-success py-2">
+                            <div class="card shadow border-start-success py-2 dashboardCard" id="searchJob">
                                 <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
+                                    <div class="row align-items-center no-gutters ">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>ingresos por mano de obra del mes</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>$215,000</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0 "><span>BUSCAR TRABAJO</span></div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-info py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Tasks</span></div>
-                                            <div class="row g-0 align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="text-dark fw-bold h5 mb-0 me-3"><span>50%</span></div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm">
-                                                        <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"><span class="visually-hidden">50%</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-warning py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>TRABAJOS PENDIENTES</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>18</span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                        <div class="col-auto"><i class="fas fa-search fa-2x text-gray-300 "></i></div>
                                     </div>
                                 </div>
                             </div>

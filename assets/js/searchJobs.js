@@ -11,15 +11,25 @@ plate.addEventListener("input", (event) => formValidation(event.path[0].id))
 fromDate.addEventListener("input", (event) => formValidation(event.path[0].id))
 toDate.addEventListener("input", (event) => formValidation(event.path[0].id))
 
+fromDate.setAttribute("max", new Date().toISOString().slice(0,10))
+toDate.setAttribute("max", new Date().toISOString().slice(0,10))
+
 function formValidation (input) {
-    if(dni.value != ""|| plate.value != "" || fromDate.value != "" || toDate.value != "") {
-        
-        document.getElementById("searchBtn").disabled = false
+    if(dni.value != ""|| plate.value != "" || fromDate.value != "" || toDate.value != "") {   
         readOnlyInputs(input)
-        
+    } else {
+        enableInputs()
+    }
+
+    const oneDay = 24 * 60 * 60 * 1000;
+    const date1 = new Date(toDate.value.replace("-",","))
+    const date2 = new Date(fromDate.value.replace("-",","))
+    const diffDays = Math.round(Math.abs((date1 - date2) / oneDay));
+
+    if(dni.value != ""|| plate.value != "" || (fromDate.value != "" && toDate.value != "" && diffDays < 31)) {
+        document.getElementById("searchBtn").disabled = false
     } else {
         document.getElementById("searchBtn").disabled = true
-        enableInputs()
     }
 }
 
@@ -146,7 +156,6 @@ function renderJobs(jobs) {
         
         jobs.forEach(job => {
             let row = document.createElement("tr")
-            console.log(job)
             row.innerHTML = `<td>${job.jobInfo.date}</td>
                             <td>${job.personalInfo.name}</td>
                             <td>${job.personalInfo.plate}</td>

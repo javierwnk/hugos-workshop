@@ -21,7 +21,6 @@ function getJob () {
         })
 }
 
-let total = 0
 
 function showData(job) {
 
@@ -40,25 +39,26 @@ function showData(job) {
         document.getElementById("invoice").innerHTML = `
         <div class="row">
         <div class="col">
-            <p>Concepto</p><input class="form-control facturacionInput" value="Mano de Obra" id="work" type="text" readonly>
+            <p>Concepto</p><input class="form-control facturacionInput partName" value="Mano de Obra" type="text" readonly>
         </div>
         <div class="col">
-            <p>Importe</p><input class="form-control facturacionInput" value="${job.workValue}" type="number">
+            <p>Importe</p><input class="form-control facturacionInput partPrice" value="${job.workValue}" type="number">
         </div>
         <div class="col">
-            <p>Acciones</p><button class="btn btn-primary facturacionAcciones" type="button">Agregar</button>
+            <p>Acciones</p><button class="btn btn-primary facturacionAcciones add" id="AddBtn1" type="button">Agregar nueva fila</button>
         </div>
     </div>`
 
-    total += job.workValue
+    handleAddEvent()
     }
 
     if(job.sparesParts != null) {
 
-        job.sparesParts.forEach((item, index) => {
+        job.sparesParts.forEach((item) => {
+
+            let idNumber = Math.random()
 
             item = JSON.parse(item)
-            total += item.price
 
             let div = document.createElement("div")
             div.innerHTML = ` <div class="row">
@@ -69,24 +69,89 @@ function showData(job) {
                                 <p>Importe</p><input class="form-control facturacionInput partPrice" value="${item.price}" type="number">
                             </div>
                             <div class="col">
-                                <p>Acciones</p><button class="btn btn-primary facturacionAcciones" type="button">Eliminar</button><button class="btn btn-primary facturacionAcciones" type="button">Agregar</button>
+                                <p>Acciones</p><button class="btn btn-primary facturacionAcciones delete" type="button" id="delete${idNumber}">Eliminar Item</button>
                             </div>
                         </div>`
 
             document.getElementById("invoice").appendChild(div)
+            handleRemoveEvents(idNumber)
 
         })
+    }
+    handlePriceInputsEvents()
+    insertTotal()
 
+}
+
+// Algorithm to add a row
+
+function handleAddEvent() {
+    document.getElementById("AddBtn1").addEventListener("click", () => {
+
+        let idNumber = Math.random()
+    
         let div = document.createElement("div")
-        div.innerHTML = `<div class="row">
-                            <div class="col">
-                                <p style="font-size: 24px;color: rgb(0,0,0);font-weight: bold;">Total del trabajo: ${new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(total)}</p>
-                            </div>
+        div.innerHTML = ` <div class="row">
+                        <div class="col">
+                            <p>Concepto</p><input class="form-control facturacionInput partName " type="text">
                         </div>
-                        
-                        <button class="btn btn-primary d-lg-flex justify-content-lg-end" type="button">Guardar facturación</button>`
-
+                        <div class="col">
+                            <p>Importe</p><input class="form-control facturacionInput partPrice" type="number">
+                        </div>
+                        <div class="col">
+                            <p>Acciones</p><button class="btn btn-primary facturacionAcciones delete" id="delete${idNumber}" type="button">Eliminar Item</button>
+                        </div>
+                    </div>`
+    
         document.getElementById("invoice").appendChild(div)
 
+        handlePriceInputsEvents()
+        handleRemoveEvents(idNumber)
+        insertTotal()
+    } )    
+}
+
+handleAddEvent()
+// Function to remove a row
+
+function handleRemoveEvents (row) {
+    const button = document.getElementById(`delete${row}`)
+    button.addEventListener("click", () => {button.parentNode.parentNode.remove(); insertTotal() })
+}
+
+// Functions relative of the total value
+
+function insertTotal () {
+    const inputs = document.getElementsByClassName("partPrice")
+
+    const total = getTotal(inputs)
+    document.getElementById("totalValue").innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(total)
+
+}
+
+const getTotal = (inputs) => {
+
+    let total = 0
+    for (i=0; i < inputs.length; i++) {
+
+        if(inputs[i].value == "") {
+            continue
+        } else {
+            total += parseInt(inputs[i].value)   
+        }
+    }
+    
+    if (total == NaN) {
+        return 0
+    } else {
+        return total
+    }
+}
+
+const handlePriceInputsEvents = () => {
+    const inputs = document.getElementsByClassName("partPrice")
+
+    for(i=0; i < inputs.length; i++) {
+        inputs[i].addEventListener("input", insertTotal)
     }
 }

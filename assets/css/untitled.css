@@ -20,3 +20,14 @@
 .isLoading, .loaded {
   display: none !important;
 }
+
+.completedJob {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 10px;
+}
+
+.small {
+  font-size: 1rem;
+}

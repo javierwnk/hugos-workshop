@@ -53,7 +53,10 @@ function createJob() {
         "jobInfo": {
             "date": date.value,
             "description": jobDescription.value,
-            "status": "pending",
+            
+        },
+        "statusInfo": {
+            "status": false,
             "completedDate": null
         },
         "workValue": null,

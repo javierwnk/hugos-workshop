@@ -196,8 +196,11 @@ function handleCompleted(date) {
     document.getElementById("actionBtns").innerHTML = `<p class="completedJob text-success">Trabajo Completado</p>
     <p class="completedJob small">Fecha: ${date}</p>`
 
-    document.getElementById("AddBtn1").remove()
     document.getElementById("save").remove()
+    const buttons = document.getElementsByTagName("button")
+    for(i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute("disabled", true)
+    } 
 }
 
 // Handle Update
@@ -236,4 +239,10 @@ document.getElementById("deleteJob").addEventListener("click", () => {
           swal("¡Ok! No lo borramos");
         }
       });
+})
+
+// Edit Job
+
+document.getElementById("editBtn").addEventListener("click", () => {
+    window.location.href = `edit.html?id=${jobId}`
 })

@@ -183,7 +183,7 @@ document.getElementById("save").addEventListener("click", () => {
 document.getElementById("completedButton").addEventListener("click", () => {
     jobInfo.statusinfo = {status: true, "completedDate": new Date().toISOString().slice(0,10)}
     handleUpdate({statusInfo: jobInfo.statusinfo}, "Trabajo terminado")
-    handleCompleted(jobInfo.statusInfo.completedDate)
+    handleCompleted( new Date().toISOString().slice(0,10))
 })
 
 function handleCompleted(date) {

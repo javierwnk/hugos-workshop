@@ -31,14 +31,14 @@
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Taller de Hugo</span></div>
+                    <div class="sidebar-brand-text mx-3"><span>Hugo's workshop</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item" id="logOut"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Jobs</span></a></li>
+                    <li class="nav-item" id="logOut"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -53,33 +53,33 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Crear trabajo</h3>
+                    <h3 class="text-dark mb-1">Create job</h3>
                 </div>
                 <div class="row" style="background: var(--bs-white);">
                     <div class="col">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p style="margin: 16px 0 16px;font-size: 12px;">Formulario para el alta de un trabajo. Los campos con * son obligatorios</p>
+                                    <p style="margin: 16px 0 16px;font-size: 12px;">Here you can create a job. Inputs with * are mandatory</p>
                                     <form>
-                                        <h6 style="font-weight: bold;">Datos generales</h6>
-                                        <input class="form-control" type="text" placeholder="Nombre y Apellido *" style="margin: 10px 0;" required id="name">
-                                        <input class="form-control" type="text" placeholder="Dirección completa *" style="margin: 10px 0;" required id="address">
-                                        <input class="form-control" type="tel" required id="phone" placeholder="Teléfono *">
+                                        <h6 style="font-weight: bold;">General info</h6>
+                                        <input class="form-control" type="text" placeholder="Full Name *" style="margin: 10px 0;" required id="name">
+                                        <input class="form-control" type="text" placeholder="Adresss *" style="margin: 10px 0;" required id="address">
+                                        <input class="form-control" type="tel" required id="phone" placeholder="Cellphone *">
                                         <input class="form-control" type="email" style="margin: 10px 0;" placeholder="E-mail" id="email">
-                                        <input class="form-control" type="number" placeholder="DNI (Solo números) *" required="" style="margin: 0 0 10px 0;" id="dni">
+                                        <input class="form-control" type="number" placeholder="ID *" required="" style="margin: 0 0 10px 0;" id="dni">
                                         
-                                        <label class="form-label">Fecha de nacimiento</label>
+                                        <label class="form-label">Birth</label>
                                         <input class="form-control" type="date" style="margin: 0 0 10px 0;" id="birth">
 
-                                        <h6 style="font-weight: bold;">Información del trabajo y del vehículo</h6>
-                                        <input class="form-control" type="text" placeholder="Patente *" style="margin: 10px 0;" required id="plate">
-                                        <label class="form-label">Fecha del trabajo</label>
+                                        <h6 style="font-weight: bold;">Job and vehicle info</h6>
+                                        <input class="form-control" type="text" placeholder="License plate *" style="margin: 10px 0;" required id="plate">
+                                        <label class="form-label">Job's date</label>
 
                                         <input class="form-control" type="date" style="margin: 0 0 10px 0;" required id="date">
-                                        <textarea class="form-control" placeholder="Descripción del trabajo *" id="jobDescription"></textarea>
+                                        <textarea class="form-control" placeholder="Job description *" id="jobDescription"></textarea>
                                         
-                                        <button class="btn btn-primary" type="button" style="margin: 10px 0;width: 100%;" id="save" disabled>Crear trabajo</button>
+                                        <button class="btn btn-primary" type="button" style="margin: 10px 0;width: 100%;" id="save" disabled>Create job</button>
                                     </form>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Taller de Hugo 2022</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © Hugo's Workshop made by Javier Wensko</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

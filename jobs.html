@@ -33,14 +33,14 @@
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Taller de Hugo</span></div>
+                    <div class="sidebar-brand-text mx-3"><span>Hugo's Workshop</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link active" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item" id="logOut"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="jobs.html"><i class="fas fa-table"></i><span>Jobs</span></a></li>
+                    <li class="nav-item" id="logOut"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -55,21 +55,21 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Trabajos</h3>
+                    <h3 class="text-dark mb-4">Jobs</h3>
                     <div class="card shadow">
                         <div class="card-header py-3 jobsHeader">
-                            <p class="text-primary d-inline m-0 fw-bold" style="width: 50%;">Historial de trabajos</p><a href="create.html"><button class="btn btn-primary" type="button">Crear nuevo trabajo</button></a>
+                            <p class="text-primary d-inline m-0 fw-bold" style="width: 50%;">Job's History</p><a href="create.html"><button class="btn btn-primary" type="button">Create new job</button></a>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <form style="padding: 0 0 20px 0;">
                                         <div class="row">
-                                            <div class="col"><label class="form-label" style="margin: 10px 0 8px 0;">DNI</label><input class="form-control" id="dni" type="number"><label class="form-label" style="margin: 10px 0 8px 0;">Patente</label><input class="form-control" id="plate" type="text"></div>
-                                            <div class="col"><label class="form-label" style="margin: 10px 0 8px 0;">Desde</label><input class="form-control" id="fromDate" type="date"><label class="form-label" style="margin: 10px 0 8px 0;">Hasta</label><input class="form-control" id="toDate" type="date"></div>
+                                            <div class="col"><label class="form-label" style="margin: 10px 0 8px 0;">ID</label><input class="form-control" id="dni" type="number"><label class="form-label" style="margin: 10px 0 8px 0;">License Plate</label><input class="form-control" id="plate" type="text"></div>
+                                            <div class="col"><label class="form-label" style="margin: 10px 0 8px 0;">From</label><input class="form-control" id="fromDate" type="date"><label class="form-label" style="margin: 10px 0 8px 0;">To</label><input class="form-control" id="toDate" type="date"></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col"><button class="btn btn-primary" type="button" id="searchBtn" disabled style="width: 100%;margin: 20px 0 0 0;">Buscar</button></div>
+                                            <div class="col"><button class="btn btn-primary" type="button" id="searchBtn" disabled style="width: 100%;margin: 20px 0 0 0;">Search</button></div>
                                         </div>
                                     </form>
                                 </div>
@@ -77,8 +77,8 @@
                             <div class="row" id="details">
 
                                 <div class="col-md-6" style="width: 100%;">
-                                    <p style="text-align: center;font-weight: bold;"><i class="fa fa-search" style="margin: 0 10px 0 0;"></i>Escriba en un campo para buscar trabajos</p>
-                                    <p style="text-align: center;">Para buscar por fecha debe seleccionar un rango menor a 31 días.</p>
+                                    <p style="text-align: center;font-weight: bold;"><i class="fa fa-search" style="margin: 0 10px 0 0;"></i>You will be able to search with one param.</p>
+                                    <p style="text-align: center;">Date filter can't be longer than 31 days.</p>
 
                                 </div>
                                 
@@ -89,7 +89,7 @@
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Taller de Hugo 2022</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © Hugo's Workshop made by Javier Wensko</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

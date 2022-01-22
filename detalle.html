@@ -33,14 +33,14 @@
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Taller de Hugo</span></div>
+                    <div class="sidebar-brand-text mx-3"><span>Hugo's Workshop</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Trabajos</span></a></li>
-                    <li class="nav-item" id="logOut"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Cerrar Sesión</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="fas fa-table"></i><span>Jobs</span></a></li>
+                    <li class="nav-item" id="logOut"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -55,7 +55,7 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Detalle de trabajo</h3>
+                    <h3 class="text-dark mb-1">Job's details</h3>
                 </div>
 
                 <div class="container d-flex justify-content-center" id="spinner" style="margin: 20px 0;"><span class="spinner-grow textprimary text-primary" role="status" style="width: 80px;height: 80px;"></span></div>
@@ -65,31 +65,31 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-4" style="margin: 12px 0;">
-                                    <h6 style="font-weight: bold;">Datos personales</h6>
+                                    <h6 style="font-weight: bold;">Personal info</h6>
                                     <ul class="list-unstyled" id="personalInfo">
                                         
                                     </ul>
                                 </div>
                                 <div class="col-md-4" style="margin: 12px 0;">
-                                    <h6 style="font-weight: bold;">Datos del trabajo</h6>
+                                    <h6 style="font-weight: bold;">Job's info</h6>
                                     <ul class="list-unstyled" id="jobInfo">
                                         
                                     </ul>
                                 </div>
-                                <div id="actionBtns" class="col-md-4" style="margin: 12px 0;"><button class="btn btn-success link-light" type="button" id="completedButton" style="width: 100%;margin: 10px 0;">Marcar como completado</button><button class="btn btn-primary" id="editBtn" type="button" style="width: 100%;">Editar información</button><button class="btn btn-danger" type="button" id="deleteJob" style="width: 100%;margin: 10px 0;">Eliminar trabajo</button></div>
+                                <div id="actionBtns" class="col-md-4" style="margin: 12px 0;"><button class="btn btn-success link-light" type="button" id="completedButton" style="width: 100%;margin: 10px 0;">Mark as finished</button><button class="btn btn-primary" id="editBtn" type="button" style="width: 100%;">Edit Job</button><button class="btn btn-danger" type="button" id="deleteJob" style="width: 100%;margin: 10px 0;">Delete Job</button></div>
                             </div>
-                            <p style="font-weight: bold;">Facturación</p>
+                            <p style="font-weight: bold;">Invoice</p>
                             <form>
                                 <div id="invoice">
                                     <div class="row">
                                         <div class="col">
-                                            <p>Concepto</p><input class="form-control facturacionInput partName" value="Mano de Obra" type="text" readonly>
+                                            <p>Concept</p><input class="form-control facturacionInput partName" value="Mano de Obra" type="text" readonly>
                                         </div>
                                         <div class="col">
-                                            <p>Importe</p><input class="form-control facturacionInput partPrice" type="number" id="precio0">
+                                            <p>Price</p><input class="form-control facturacionInput partPrice" type="number" id="precio0">
                                         </div>
                                         <div class="col">
-                                            <p>Acciones</p><button class="btn btn-primary facturacionAcciones" id="AddBtn1" type="button">Agregar nueva fila</button>
+                                            <p>Actions</p><button class="btn btn-primary facturacionAcciones" id="AddBtn1" type="button">Add rows</button>
                                         </div>
                                     </div>
                                 </div>
@@ -97,12 +97,12 @@
                                 <div id="total">
                                     <div class="row">
                                         <div class="col">
-                                            <p style="font-size: 24px;color: rgb(0,0,0);font-weight: bold;">Total del trabajo: <span id="totalValue">$0</span></p>
+                                            <p style="font-size: 24px;color: rgb(0,0,0);font-weight: bold;">Total: <span id="totalValue">$0</span></p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary d-lg-flex justify-content-lg-end" id="save" type="button">Guardar facturación</button>
+                                <button class="btn btn-primary d-lg-flex justify-content-lg-end" id="save" type="button">Save Invoice</button>
                             </form>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Taller de Hugo 2022</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © Hugo's Workshop made by Javier Wensko</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

@@ -28,28 +28,28 @@ function getJob () {
 function showData(job) {
     
 
-    document.getElementById("personalInfo").innerHTML = `<li>Nombre y apellido: ${job.personalInfo.name}</li>
-    <li>Teléfono: ${job.personalInfo.phone}</li>
-    <li>DNI: ${job.personalInfo.dni}</li>
-    <li>Dirección: ${job.personalInfo.address}</li>
-    <li>Fecha de Nac: ${job.personalInfo.birth}</li>
+    document.getElementById("personalInfo").innerHTML = `<li>Full name: ${job.personalInfo.name}</li>
+    <li>Cellphone: ${job.personalInfo.phone}</li>
+    <li>ID: ${job.personalInfo.dni}</li>
+    <li>Address: ${job.personalInfo.address}</li>
+    <li>Birthday: ${job.personalInfo.birth}</li>
     <li>Email: ${job.personalInfo.email}</li>`
 
-    document.getElementById("jobInfo").innerHTML = `<li>Fecha de ingreso: ${job.jobInfo.date}</li>
-    <li>Patente: ${job.personalInfo.plate}</li>
-    <li>Detalle: ${job.jobInfo.description}</li>`
+    document.getElementById("jobInfo").innerHTML = `<li>Date of admission: ${job.jobInfo.date}</li>
+    <li>License plate: ${job.personalInfo.plate}</li>
+    <li>Details: ${job.jobInfo.description}</li>`
 
     if(job.workValue != null) {
         document.getElementById("invoice").innerHTML = `
         <div class="row">
         <div class="col">
-            <p>Concepto</p><input class="form-control facturacionInput partName" value="Mano de Obra" type="text" readonly>
+            <p>Concept</p><input class="form-control facturacionInput partName" value="Mano de Obra" type="text" readonly>
         </div>
         <div class="col">
-            <p>Importe</p><input class="form-control facturacionInput partPrice" value="${job.workValue}" type="number">
+            <p>Price</p><input class="form-control facturacionInput partPrice" value="${job.workValue}" type="number">
         </div>
         <div class="col">
-            <p>Acciones</p><button class="btn btn-primary facturacionAcciones add" id="AddBtn1" type="button">Agregar nueva fila</button>
+            <p>Actions</p><button class="btn btn-primary facturacionAcciones add" id="AddBtn1" type="button">Add rows</button>
         </div>
     </div>`
 
@@ -66,13 +66,13 @@ function showData(job) {
                 let div = document.createElement("div")
                 div.innerHTML = ` <div class="row">
                                 <div class="col">
-                                    <p>Concepto</p><input class="form-control facturacionInput partName" value="${item.name}" type="text">
+                                    <p>Concept</p><input class="form-control facturacionInput partName" value="${item.name}" type="text">
                                 </div>
                                 <div class="col">
-                                    <p>Importe</p><input class="form-control facturacionInput partPrice" value="${item.price}" type="number">
+                                    <p>Price</p><input class="form-control facturacionInput partPrice" value="${item.price}" type="number">
                                 </div>
                                 <div class="col">
-                                    <p>Acciones</p><button class="btn btn-primary facturacionAcciones delete" type="button" id="delete${idNumber}">Eliminar Item</button>
+                                    <p>Acciones</p><button class="btn btn-primary facturacionAcciones delete" type="button" id="delete${idNumber}">Delete row</button>
                                 </div>
                             </div>`
     
@@ -100,13 +100,13 @@ function handleAddEvent() {
         let div = document.createElement("div")
         div.innerHTML = ` <div class="row">
                         <div class="col">
-                            <p>Concepto</p><input class="form-control facturacionInput partName " type="text">
+                            <p>Concept</p><input class="form-control facturacionInput partName " type="text">
                         </div>
                         <div class="col">
-                            <p>Importe</p><input class="form-control facturacionInput partPrice" type="number">
+                            <p>Price</p><input class="form-control facturacionInput partPrice" type="number">
                         </div>
                         <div class="col">
-                            <p>Acciones</p><button class="btn btn-primary facturacionAcciones delete" id="delete${idNumber}" type="button">Eliminar Item</button>
+                            <p>Actions</p><button class="btn btn-primary facturacionAcciones delete" id="delete${idNumber}" type="button">Delete row</button>
                         </div>
                     </div>`
     
@@ -132,7 +132,7 @@ function insertTotal () {
     const inputs = document.getElementsByClassName("partPrice")
 
     const total = getTotal(inputs)
-    document.getElementById("totalValue").innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(total)
+    document.getElementById("totalValue").innerText = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'AUD' }).format(total)
 
 }
 
@@ -175,14 +175,14 @@ document.getElementById("save").addEventListener("click", () => {
         sparesParts.push({name: partName[i].value, price: partPrice[i].value})
     }
 
-    handleUpdate({"sparesParts": sparesParts, "workValue": partPrice[0].value}, "Datos de facturación actualizados correctamente")
+    handleUpdate({"sparesParts": sparesParts, "workValue": partPrice[0].value}, "Invoice details saved successfully")
 })
 
 // Mark as Completed
 
 document.getElementById("completedButton").addEventListener("click", () => {
     jobInfo.statusinfo = {status: true, "completedDate": new Date().toISOString().slice(0,10)}
-    handleUpdate({statusInfo: jobInfo.statusinfo}, "Trabajo terminado")
+    handleUpdate({statusInfo: jobInfo.statusinfo}, "Finished")
     handleCompleted( new Date().toISOString().slice(0,10))
 })
 
@@ -193,8 +193,8 @@ function handleCompleted(date) {
         inputs[i].setAttribute("readonly", "true")
     }
 
-    document.getElementById("actionBtns").innerHTML = `<p class="completedJob text-success">Trabajo Completado</p>
-    <p class="completedJob small">Fecha: ${date}</p>`
+    document.getElementById("actionBtns").innerHTML = `<p class="completedJob text-success">Finished</p>
+    <p class="completedJob small">Date: ${date}</p>`
 
     document.getElementById("save").remove()
     const buttons = document.getElementsByTagName("button")
@@ -209,7 +209,7 @@ const handleUpdate = (update, message) => {
     firestore.doc("jobs/"+jobId)
         .update(update)
         .then(() => {
-            swal("¡Éxito!", message, "success");
+            swal("Done!", message, "success");
         })
 }
 
@@ -217,8 +217,8 @@ const handleUpdate = (update, message) => {
 
 document.getElementById("deleteJob").addEventListener("click", () => {
     swal({
-        title: "¿Estás seguro?",
-        text: "Una vez que confirmes no se podrá recuperar el trabajo",
+        title: "Are you sure?",
+        text: "Once confirmed it can't be recovered",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -228,7 +228,7 @@ document.getElementById("deleteJob").addEventListener("click", () => {
 
             firestore.doc("jobs/"+jobId).delete()
             .then(() => {
-                swal("Eliminado", "Presione Ok para ir a trabajos", "success")
+                swal("Delete", "Press Ok to continuo", "success")
                 .then (() => {
                     window.location.href = "jobs.html"
                   })
@@ -236,7 +236,7 @@ document.getElementById("deleteJob").addEventListener("click", () => {
             })
 
         } else {
-          swal("¡Ok! No lo borramos");
+          swal("Okay! We are not deleting it");
         }
       });
 })

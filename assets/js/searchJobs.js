@@ -139,9 +139,9 @@ function renderJobs(jobs) {
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Nombre y Apellido</th>
-                        <th>Patente</th>
+                        <th>Date</th>
+                        <th>Full Name</th>
+                        <th>Licence Plate</th>
                         <th>Status</th>
                         <th></th>
                     </tr>
@@ -159,15 +159,15 @@ function renderJobs(jobs) {
             row.innerHTML = `<td>${job.jobInfo.date}</td>
                             <td>${job.personalInfo.name}</td>
                             <td>${job.personalInfo.plate}</td>
-                            <td class="text-center">${job.statusInfo.status ? "Completado" : "Pendiente"}</td>
-                            <td class="link-primary"><a style="text-decoration: none;" href="detalle.html?id=${job.id}">Ver detalles</a></td>`
+                            <td class="text-center">${job.statusInfo.status ? "Finished" : "Pending"}</td>
+                            <td class="link-primary"><a style="text-decoration: none;" href="detalle.html?id=${job.id}">View details</a></td>`
 
             document.getElementById("tableBody").appendChild(row)
         })
 
     } else {
         details.innerHTML = `<div class="col-md-6" style="width: 100%;"><i class="fa fa-frown-o" style="font-size: 4rem;text-align: center;display: block;"></i>
-        <p style="text-align: center;font-weight: bold;">No se encontraron resultados con los filtros aplicados</p>
+        <p style="text-align: center;font-weight: bold;">We couldn't find any record that matches with your params.</p>
     </div>`
     }
 

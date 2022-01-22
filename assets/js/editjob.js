@@ -31,24 +31,24 @@ function formValidation () {
 }
 
 function addInfo (job) {
-    document.getElementById("formUpdate").innerHTML = `<h6 style="font-weight: bold;">Datos generales</h6>
-    <input class="form-control" type="text" placeholder="Nombre y Apellido *" style="margin: 10px 0;" value="${job.personalInfo.name}" required id="name">
-    <input class="form-control" type="text" placeholder="Dirección completa *" style="margin: 10px 0;" value="${job.personalInfo.address}" required id="address">
-    <input class="form-control" type="tel" required id="phone" value="${job.personalInfo.phone}" placeholder="Teléfono *">
+    document.getElementById("formUpdate").innerHTML = `<h6 style="font-weight: bold;">General info</h6>
+    <input class="form-control" type="text" placeholder="Full name *" style="margin: 10px 0;" value="${job.personalInfo.name}" required id="name">
+    <input class="form-control" type="text" placeholder="Address *" style="margin: 10px 0;" value="${job.personalInfo.address}" required id="address">
+    <input class="form-control" type="tel" required id="phone" value="${job.personalInfo.phone}" placeholder="Cellphone *">
     <input class="form-control" type="email" style="margin: 10px 0;" placeholder="E-mail" value="${job.personalInfo.email}" id="email">
-    <input class="form-control" type="number" placeholder="DNI (Solo números) *" required="" value="${job.personalInfo.dni}" style="margin: 0 0 10px 0;" id="dni">
+    <input class="form-control" type="number" placeholder="ID *" required="" value="${job.personalInfo.dni}" style="margin: 0 0 10px 0;" id="dni">
     
-    <label class="form-label">Fecha de nacimiento</label>
+    <label class="form-label">Birth</label>
     <input class="form-control" type="date" style="margin: 0 0 10px 0;" value="${job.personalInfo.birth}" id="birth">
 
-    <h6 style="font-weight: bold;">Información del trabajo y del vehículo</h6>
-    <input class="form-control" type="text" placeholder="Patente *" style="margin: 10px 0;" value="${job.personalInfo.plate}" required id="plate">
-    <label class="form-label">Fecha del trabajo</label>
+    <h6 style="font-weight: bold;">Job and vehicle info</h6>
+    <input class="form-control" type="text" placeholder="Licence plate *" style="margin: 10px 0;" value="${job.personalInfo.plate}" required id="plate">
+    <label class="form-label">Job's date</label>
 
     <input class="form-control" type="date" style="margin: 0 0 10px 0;" required id="date" value="${job.jobInfo.date}" readonly>
-    <textarea class="form-control" placeholder="Descripción del trabajo *"  id="jobDescription">${job.jobInfo.description}</textarea>
+    <textarea class="form-control" placeholder="Job description*"  id="jobDescription">${job.jobInfo.description}</textarea>
     
-    <button class="btn btn-primary" type="button" style="margin: 10px 0;width: 100%;" id="save">Guardar cambios</button>`
+    <button class="btn btn-primary" type="button" style="margin: 10px 0;width: 100%;" id="save">Save changes</button>`
 
 
     // Inputs
@@ -100,7 +100,7 @@ function addInfo (job) {
 function editJob(object) {
     firestore.doc("jobs/"+jobId).update(object)
     .then(() => {
-        swal("¡Éxito!", "Trabajo actualizado correctamente.", "success")
+        swal("Success!", "Job updated successfully.", "success")
         .then( () => {
             window.location.href = `detalle.html?id=${jobId}`
         }

@@ -11,7 +11,7 @@ document.getElementById("loginBtn").addEventListener("click", e => {
             window.location.href = "index.html"
         })
         .catch( err => {
-            document.getElementById("errorMsg").innerHTML = `<p style="color: red;">Usuario o contraseña incorrectos.</p>`
+            document.getElementById("errorMsg").innerHTML = `<p style="color: red;">Check user or passwork.</p>`
         }
         )
 })
